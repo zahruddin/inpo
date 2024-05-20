@@ -27,6 +27,7 @@ class JobSeeker extends Model
         'work_experience',
         'skills',
         'certifications',
+        'profile_picture',
     ];
 
     /**

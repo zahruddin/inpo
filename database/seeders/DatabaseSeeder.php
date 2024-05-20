@@ -13,6 +13,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(UsersTableSeeder::class);
+        // $this->call(JobCategorySeeder::class);
+        // $this->call(JobTypeSeeder::class);
+        // $this->call([JobListingSeeder::class ]);
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

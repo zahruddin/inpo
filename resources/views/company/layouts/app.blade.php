@@ -40,7 +40,8 @@
           </button>
           <h1 class="navbar-brand navbar-brand-autodark">
             <a href="{{ route('jobseeker.dashboard') }}">
-              <img src="./static/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+              {{-- <img src="./static/logo.svg" width="110" height="32" alt="InpoLoker" class="navbar-brand-image"> --}}
+							InpoLoker
             </a>
           </h1>
           <div class="collapse navbar-collapse" id="sidebar-menu">
@@ -56,12 +57,22 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./form-elements.html" >
+                <a class="nav-link" href="{{ route('company.listlowongan') }}" >
                   <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 11l3 3l8 -8" /><path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" /></svg>
                   </span>
                   <span class="nav-link-title">
-                    Forms
+                    List Lowongan Kerja
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('company.lamaranmasuk') }}" >
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 11l3 3l8 -8" /><path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" /></svg>
+                  </span>
+                  <span class="nav-link-title">
+                    Lamaran Masuk
                   </span>
                 </a>
               </li>
@@ -140,18 +151,18 @@
             </div>
             <div class="nav-item dropdown">
               <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
-                <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"></span>
+                <span class="avatar avatar-sm" style="background-image: url({{ asset('storage/company/logo/' . $company->company_logo) }})"></span>
                 <div class="d-none d-xl-block ps-2">
-                  <div>Paweł Kuna</div>
-                  <div class="mt-1 small text-secondary">UI Designer</div>
+                  <div>{{ $company->company_name }}</div>
+                  <div class="mt-1 small text-secondary">{{ $user->user_type }}</div>
                 </div>
               </a>
               <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <a href="#" class="dropdown-item">Status</a>
-                <a href="./profile.html" class="dropdown-item">Profile</a>
-                <a href="#" class="dropdown-item">Feedback</a>
-                <div class="dropdown-divider"></div>
-                <a href="./settings.html" class="dropdown-item">Settings</a>
+                <a href="{{ route('company.profile') }}" class="dropdown-item">Profile</a>
+                {{-- <a href="#" class="dropdown-item">Feedback</a> --}}
+                {{-- <div class="dropdown-divider"></div> --}}
+                <a href="{{ route('company.setting') }}" class="dropdown-item">Settings</a>
                 <a href="{{ route('logout') }}" class="dropdown-item">Logout</a>
               </div>
             </div>

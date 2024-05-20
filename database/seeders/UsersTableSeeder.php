@@ -18,10 +18,10 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name' => 'jobseeker User',
-                'email' => 'jobseeker',
+                'name' => 'Company',
+                'email' => 'company2',
                 'password' => Hash::make('123'), // Jangan gunakan kata sandi yang lemah di produksi
-                'user_type' => 'job_seeker',
+                'user_type' => 'company',
                 'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Company\CompanyController;
+use App\Http\Controllers\FrontController;
 
 
 /*
@@ -15,9 +17,11 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('front');
+// Route::get('/', function () {
+//     return view('index');
+// })->name('front');
+Route::get('/', [FrontController::class, 'index'])->name('front');
+Route::get('/lokerdetail/{id}', [FrontController::class, 'showLokerDetail'])->name('job-listing.show');
 
 Route::middleware('guest')->group(function () {
     Route::get('/admin', [LoginController::class, 'showLoginFormAdmin'])->name('loginAdmin');
@@ -37,13 +41,27 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 Route::middleware(['auth', 'company'])->group(function () {
-    Route::get('/company/dashboard', function () {
-        return view('company.dashboard');
-    })->name('company.dashboard');
+    Route::get('/company/setting', [CompanyController::class, 'showSetting'])->name('company.setting');
+    Route::get('/company/listlowongan', [CompanyController::class, 'showListLowongan'])->name('company.listlowongan');
+    Route::get('/company/lamaranmasuk', [CompanyController::class, 'showLamaranMasuk'])->name('company.lamaranmasuk');
+    Route::get('/company/dashboard', [CompanyController::class, 'showDashboard'])->name('company.dashboard');
+    Route::get('/company/profile', [CompanyController::class, 'showProfile'])->name('company.profile');
+    Route::get('/company/tambahlowongan', [CompanyController::class, 'showtambahlowongan'])->name('company.showtambahlowongan');
+    Route::post('/company/tambahlowongan', [CompanyController::class, 'tambahlowongan'])->name('company.tambahlowongan');
+    Route::post('/company/updateprofile', [CompanyController::class, 'updateProfile'])->name('company.updateprofile');
 });
 
 Route::middleware(['auth', 'job_seeker'])->group(function () {
+    Route::get('/jobseeker/dashboard', [JobSeekerController::class, 'showDashboard'])->name('jobseeker.dashboard');
+
+
     Route::get('/jobseeker/dashboard', function () {
         return view('jobseeker.dashboard');
     })->name('jobseeker.dashboard');
+    Route::get('/jobseeker/setting', function () {
+        return view('jobseeker.setting');
+    })->name('jobseeker.setting');
+    Route::get('/jobseeker/profile', function () {
+        return view('jobseeker.profile');
+    })->name('jobseeker.profile');
 });
