@@ -1,4 +1,4 @@
-@extends('jobseeker.layouts.app')
+@extends('layouts.app')
 @section('main')    
         <!-- Page header -->
         <div class="page-header d-print-none">

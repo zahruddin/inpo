@@ -1,4 +1,4 @@
-@extends('jobseeker.layouts.app')
+@extends('layouts.app')
 @section('main')
     <!-- Page header -->
     <div class="page-header d-print-none">
@@ -25,8 +25,8 @@
                     <div class="row row-cards">
                       <div class="col-md-5">
                         <div class="mb-3">
-                          <label class="form-label">Company</label>
-                          <input type="text" class="form-control" disabled="" placeholder="Company"
+                          <label class="form-label">Job Seeker</label>
+                          <input type="text" class="form-control" disabled="" placeholder="Job Seeker"
                        value="Creative Code Inc.">
                         </div>
                       </div>

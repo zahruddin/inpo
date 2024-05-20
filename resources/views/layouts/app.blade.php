@@ -150,6 +150,7 @@
                 </div> --}}
               </div>
             </div>
+            {{-- job seeker tombol --}}
             <div class="nav-item dropdown">
               <a href="{{ route('loginJobSeeker') }}" class="nav-link d-flex lh-1 text-reset p-0"  data-bs-toggle="dropdown" aria-label="Open user menu">
                 <span class="avatar avatar-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user">
@@ -158,16 +159,19 @@
                   <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                 </svg></span>
                 <div class="d-none d-xl-block ps-2">
-                  <div>Login</div>
+                  <div>{{ $jobSeeker->job_seeker_name ?? 'Login'}}</div>
                   <div class="mt-1 small text-secondary">Job Seeker</div>
                 </div>
               </a>
               <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <a href="#" class="dropdown-item">Login</a>
-                <a href="#" class="dropdown-item">Register</a>
-                <a href="{{ route('company.profile') }}" class="dropdown-item">Profile</a>
-                <a href="{{ route('company.setting') }}" class="dropdown-item">Settings</a>
-                <a href="{{ route('logout') }}" class="dropdown-item">Logout</a>
+                @if (Auth::check())
+                  <a href="{{ route('jobseeker.profile') }}" class="dropdown-item">Profile</a>
+                  <a href="{{ route('jobseeker.setting') }}" class="dropdown-item">Settings</a>
+                  <a href="{{ route('logout') }}" class="dropdown-item">Logout</a>
+                @else
+                  <a href="{{ route('loginJobSeeker') }}" class="dropdown-item">Login</a>
+                  <a href="#" class="dropdown-item">Register</a>
+                @endif
               </div>
             </div>
           </div>

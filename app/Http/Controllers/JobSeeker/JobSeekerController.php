@@ -18,7 +18,7 @@ use App\Models\JobSeeker;
 class JobSeekerController extends Controller
 {
     //
-    public function showDashboard()
+    public function showHomeJobSeeker()
     {
         // Ambil perusahaan berdasarkan user_id dari pengguna yang sedang login
         $company = JobSeeker::where('user_id', Auth::id())->first();

@@ -25,7 +25,7 @@ class RedirectIfAuthenticated
                 case 'company':
                     return redirect('/company/dashboard');
                 case 'job_seeker':
-                    return redirect('/jobseeker/dashboard');
+                    return redirect('/');
                 default:
                     return redirect('/');
             }

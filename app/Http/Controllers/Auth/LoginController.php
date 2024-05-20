@@ -33,7 +33,7 @@ class LoginController extends Controller
             } elseif ($user->user_type === 'company') {
                 return redirect()->intended('/company/dashboard');
             } elseif ($user->user_type === 'job_seeker') {
-                return redirect()->intended('/jobseeker/dashboard');
+                return redirect()->route('front');
             }
         }
 

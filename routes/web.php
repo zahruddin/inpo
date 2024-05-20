@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\JobSeeker\JobSeekerController;
 
 
 /*
@@ -52,12 +53,7 @@ Route::middleware(['auth', 'company'])->group(function () {
 });
 
 Route::middleware(['auth', 'job_seeker'])->group(function () {
-    Route::get('/jobseeker/dashboard', [JobSeekerController::class, 'showDashboard'])->name('jobseeker.dashboard');
-
-
-    Route::get('/jobseeker/dashboard', function () {
-        return view('jobseeker.dashboard');
-    })->name('jobseeker.dashboard');
+    
     Route::get('/jobseeker/setting', function () {
         return view('jobseeker.setting');
     })->name('jobseeker.setting');
